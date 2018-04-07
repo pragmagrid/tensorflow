@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+
+	<description>
+	Your tensorflow roll description here
+	</description>
+
+	<copyright>
+	Copyright (c) 2000 - 2017 The Regents of the University of California.
+	All rights reserved. Rocks(r) v6.2/v7.0 www.rocksclusters.org
+	
+	</copyright>
+
+	<changelog>
+	$Log$
+	</changelog>
+
+	<package>java-1.8.0-openjdk-devel</package>
+	<package>atlas-devel</package>
+
+	<package>bazel</package>
+
+	<package>opt-cudnn</package>
+	<package>opt-setuptools-36</package>
+	<package>opt-wheel-36</package>
+	<package>opt-absl-py-36</package>
+	<package>opt-astor-36</package>
+	<package>opt-bleach-36</package>
+	<package>opt-chardet-36</package>
+	<package>opt-dev-36</package>
+	<package>opt-gast-36</package>
+	<package>opt-grpcio-36</package>
+	<package>opt-html5lib-36</package>
+	<package>opt-numpy-36</package>
+	<package>opt-scipy-36</package>
+	<package>opt-protobuf-36</package>
+	<package>opt-six-36</package>
+	<package>opt-yaml-36</package>
+	<package>opt-keras-36</package>
+	<package>opt-tensorflow-36</package>
+	<package>opt-tensorflowonspark-36</package>
+	<package>opt-tensorboard-36</package>
+	<package>opt-termcolor-36</package>
+	<package>opt-webencodings-36</package>
+	<package>opt-elephas-36</package>
+	<package>tensorflow-module</package>
+
+</kickstart>

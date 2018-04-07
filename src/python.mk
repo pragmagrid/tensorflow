@@ -1,0 +1,2 @@
+PYTHONVER = python3.6
+PYSHORT = 36

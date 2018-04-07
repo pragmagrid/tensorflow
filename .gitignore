@@ -1,0 +1,27 @@
+# build directory
+BUILD/
+RPMS/
+SOURCES/
+SPECS/
+
+*.pyc
+
+_os
+_arch
+_distribution
+
+# ignore version.mk
+rocks-version.mk
+rocks-version-common.mk
+
+# ignore Rules files
+Rules*.mk
+Rolls.mk
+spark.spec*
+
+# binaries files
+src/*/*gz
+src/*/*zip
+src/bazel/*rpm
+src/cudnn/*deb
+src/tensor*/*whl

@@ -1,0 +1,55 @@
+# Follow isntall instrucitons from source https://www.tensorflow.org/install/install_sources#ConfigureInstallation
+
+#### set environment
+# add link, this is a stub that functions for library that isprovided by cuda driver
+# and does not exist on non-GPU host
+ln -s /opt/cuda_8.0.61/lib64/stubs/libcuda.so /opt/cuda_8.0.61/lib64/stubs/libcuda.so.1
+
+module load cuda
+module load opt-python
+
+# For bazel install java-1.8.0-openjdk-devel RPM
+# For bazel JAVA_HOME is set in /etc/profile.d/hava.* files but link does not exists
+# rework this later (as module?)
+mkdir /usr/java
+ln -s /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/ /usr/java/latest
+
+# install bazel rpm 
+# install cuda-modules and cuda-libs rpm 
+# install opt-cudnn RPM
+
+# create device that is no available in cuda install. tensorflow configure needs 10:
+cd /opt/cuda_8.0.61/nvvm/libdevice/
+ln -s libdevice.compute_50.10.bc libdevice.10.bc
+
+# download  tensorflow from https://github.com/tensorflow/tensorflow/archive/v1.7.0.tar.gz
+tar xzvf v1.7.0.tar.gz
+cd tensorflow-1.7.0/
+
+# run configure and answer questions. 
+# 	use cuda 8.0, cuDNN 7.1 (per isntalled)
+# 	use /opt/python/bin/python3.6
+# 	Use capability 6.2 (reported by deviceQuery)
+# 	accept suggested defaults for the rest
+./configure
+
+# after configure is run there are  created files (saved here as dot.bazelrc and dot.tf_configure.bazelrc )
+# .bazelrc 
+# .tf_configure.bazelrc
+# plus links 
+# bazel-bin              -> /root/.cache/bazel/_bazel_root/c34f0c5*
+# bazel-genfiles         -> /root/.cache/bazel/_bazel_root/c34f0c5*
+# bazel-out              -> /root/.cache/bazel/_bazel_root/c34f0c5*
+# bazel-tensorflow-1.7.0 -> /root/.cache/bazel/_bazel_root/c34f0c5*
+# bazel-testlogs         -> /root/.cache/bazel/_bazel_root/c34f0c5*
+
+# build tensorflow
+bazel build --verbose_failures --action_env="LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" \
+            --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+# build pip package
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+
+# move resultign wheel file
+mv /tmp/tensorflow_pkg/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl .
+
+# make RPM per Makefile/version.mk

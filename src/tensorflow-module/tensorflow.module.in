@@ -1,0 +1,17 @@
+#%Module1.0
+##
+## tensorflow modulefile
+##
+## modulefiles/
+##
+proc ModulesHelp { } {
+	puts stderr "\tTensroflow @VERSION@"
+}
+
+module-whatis	"Spark Version @VERSION@"
+
+setenv JAVA_HOME /usr
+
+module load opt-python
+module load cuda
+
