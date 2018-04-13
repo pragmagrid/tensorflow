@@ -16,6 +16,7 @@ build:
 	tar xzvf $(ARCHIVENAME)-$(VERSION).$(TARBALL_POSTFIX)
 	(\
 	    cd $(ARCHIVENAME)-$(VERSION);   \
+	    chmod a+r absl_py.egg-info/*;   \
 	    module load opt-python ;        \
 	    $(PY.PATH) setup.py build;      \
 	)

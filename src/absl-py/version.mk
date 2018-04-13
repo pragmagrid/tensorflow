@@ -10,7 +10,7 @@ PY.PATH = /opt/python/bin/$(PYTHONVER)
 NAME            = opt-absl-py-$(PYSHORT)
 ARCHIVENAME     = absl-py
 VERSION         = 0.1.13
-RELEASE         = 0
+RELEASE         = 1
 TARBALL_POSTFIX	= "tar.gz"
 
 RPM.EXTRAS = "AutoReq: no" \

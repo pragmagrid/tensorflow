@@ -10,7 +10,7 @@ PY.PATH = /opt/python/bin/$(PYTHONVER)
 NAME            = opt-tensorboard-$(PYSHORT)
 ARCHIVENAME     = tensorboard
 VERSION         = 1.7.0
-RELEASE         = 0
+RELEASE         = 1
 TARBALL_POSTFIX	= "py3-none-any.whl"
 
 RPM.EXTRAS = "AutoReq: no" \

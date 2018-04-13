@@ -15,6 +15,7 @@ build:
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
 	unzip -d $(ROOT)/$(PKGROOT) $(ARCHIVENAME)-$(VERSION)-$(TARBALL_POSTFIX)
+	(cd $(ROOT)/$(PKGROOT); chmod -R a+r tensorboard*)
 
 clean::
 	rm -rf $(ARCHIVENAME) $(ARCHIVENAME)-$(VERSION).dist-info $(VERSION.MK.INCLUDE)
