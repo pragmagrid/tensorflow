@@ -1,4 +1,4 @@
-# Follow isntall instrucitons from source https://www.tensorflow.org/install/install_sources#ConfigureInstallation
+# Follow install instrucitons from source https://www.tensorflow.org/install/install_sources#ConfigureInstallation
 
 #### set environment
 # add link, this is a stub that functions for library that isprovided by cuda driver
@@ -18,7 +18,7 @@ ln -s /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.161-0.b14.el7_4.x86_64/ /usr/java/la
 # install cuda-modules and cuda-libs rpm 
 # install opt-cudnn RPM
 
-# create device that is no available in cuda install. tensorflow configure needs 10:
+# create device that is not available in cuda install. tensorflow configure needs 10:
 cd /opt/cuda_8.0.61/nvvm/libdevice/
 ln -s libdevice.compute_50.10.bc libdevice.10.bc
 
@@ -29,11 +29,11 @@ cd tensorflow-1.7.0/
 # run configure and answer questions. 
 # 	use cuda 8.0, cuDNN 7.1 (per isntalled)
 # 	use /opt/python/bin/python3.6
-# 	Use capability 6.2 (reported by deviceQuery)
+# 	Use capability 3.5,6.1 (reported by deviceQuery)
 # 	accept suggested defaults for the rest
 ./configure
 
-# after configure is run there are  created files (saved here as dot.bazelrc and dot.tf_configure.bazelrc )
+# after configure is run there are created files (saved here as dot.bazelrc and dot.tf_configure.bazelrc )
 # .bazelrc 
 # .tf_configure.bazelrc
 # plus links 
@@ -49,7 +49,7 @@ bazel build --verbose_failures --action_env="LD_LIBRARY_PATH=${LD_LIBRARY_PATH}"
 # build pip package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 
-# move resultign wheel file
+# move resulting wheel file
 mv /tmp/tensorflow_pkg/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl .
 
 # make RPM per Makefile/version.mk

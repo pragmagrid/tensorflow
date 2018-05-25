@@ -46,5 +46,8 @@
 	<package>opt-webencodings-36</package>
 	<package>opt-elephas-36</package>
 	<package>tensorflow-module</package>
+	<package>opt-opencv-36</package>
+	<package>opt-Pillow-36</package>
+	<package>opt-h5py-36</package>
 
 </kickstart>
