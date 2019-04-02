@@ -1,8 +1,13 @@
 # Tensorflow Roll 
 Installs Tensorflow and its dependencies
 
+Chekout the roll source
+```bash
+git clone https://github.com/pragmagrid/tensorflow
+```
+
 ###  Prerequisits
-This section lists all the prerequisites for tensorflow dependencies.
+This section lists all the prerequisites and tensorflow dependencies.
 The dependencies are either build from source or installed from RPMs 
 during the roll build.
 
@@ -40,8 +45,7 @@ during the roll build.
 This is a list of commands used to produce tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl file.
 The resulting file is now added to the google drive and is downloaded and included as an RPM distro
 when building the roll.  The following instructions are an example of HOWTO.
-
-Follow initial install instructions from source https://www.tensorflow.org/install/install_sources#ConfigureInstallation
+Started with the  initial install instructions from source https://www.tensorflow.org/install/install_sources#ConfigureInstallation
 
 1. Download and install tensorboard, needed as a prerequisite before building tensorflow.
    - Get tensorboard-1.7.0-py3-none-any.whl  from https://pypi.org/project/tensorboard/1.7.0/#files
@@ -127,3 +131,21 @@ Follow initial install instructions from source https://www.tensorflow.org/insta
    mv /tmp/tensorflow_pkg/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl .
    ```
 1. make RPM per Makefile/version.mk
+
+###  Building a roll
+
+At the top of the roll src tree execute 
+```bash
+make roll
+```
+
+### Installing
+
+To add this roll to existing cluster, execute these instructions on a Rocks frontend:
+```bash
+rocks add roll tensorflow-*.x86_64.disk1.iso
+rocks enable roll tensorflow
+(cd /export/rocks/install; rocks create distro)
+rocks run roll tensorflow > add-roll.sh
+bash add-roll.sh
+```
