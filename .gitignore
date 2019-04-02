@@ -11,6 +11,7 @@ _os
 _arch
 _distribution
 .rpmmacros
+bootstrap.py
 
 # ignore mk
 rocks-version.mk
