@@ -67,7 +67,6 @@ Started with the  initial install instructions from source https://www.tensorflo
    ```
 1. donwload and install bazel rpm. The script will download the  epel repo file, installs it
    and then download need RPM.
-```
    ```bash
     cd src/bazel; 
     ./getBazelRpm.sh
